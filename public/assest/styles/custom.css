@@ -1,0 +1,8 @@
+/* Left SideNav Open And Clode  */
+.side-nav.slideOut {
+    transform: translateX(0px);
+}
+#sidenav-overlay{
+    opacity: 0.5;
+    background-color: black;
+}
