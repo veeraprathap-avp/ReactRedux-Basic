@@ -1,5 +1,3 @@
-![logos](https://image.ibb.co/m8S9ew/react_redux_sass.jpg)
-
 # React Redux Basic layout
 A simple and quick way to get you going with developing React applications with Redux and Sass.
 
@@ -10,7 +8,7 @@ with all ready configuration create components for your own purpose and use redu
 ### Get started!
 ```
 git clone
-cd React-Redux-Sass-Starter
+cd React-Redux-Basic
 npm i
 ```
 
