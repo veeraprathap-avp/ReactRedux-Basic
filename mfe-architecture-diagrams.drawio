@@ -11,7 +11,7 @@
         </mxCell>
 
         <!-- div#mfe-container -->
-        <mxCell id="div" value="&lt;div id=&quot;mfe-container&quot;&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="div" value="&amp;lt;div id=&quot;mfe-container&quot;&amp;gt;&amp;lt;/div&amp;gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="100" y="100" width="220" height="60" as="geometry" />
         </mxCell>
 
@@ -21,7 +21,7 @@
         </mxCell>
 
         <!-- script tag -->
-        <mxCell id="script" value="&lt;script src=&quot;mfe.bundle.js&quot;&gt;&lt;/script&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="script" value="&amp;lt;script src=&quot;mfe.bundle.js&quot;&amp;gt;&amp;lt;/script&amp;gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="100" y="200" width="220" height="60" as="geometry" />
         </mxCell>
 
@@ -41,7 +41,7 @@
         </mxCell>
 
         <!-- React root -->
-        <mxCell id="react" value="ReactDOM.createRoot(div).render(&lt;App/&gt;)&#10;Renders directly into global DOM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=11;" vertex="1" parent="1">
+        <mxCell id="react" value="ReactDOM.createRoot(div).render(&amp;lt;App/&amp;gt;)&#10;Renders directly into global DOM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="760" y="100" width="200" height="60" as="geometry" />
         </mxCell>
 
@@ -89,7 +89,7 @@
         </mxCell>
 
         <!-- custom element tag -->
-        <mxCell id="tag" value="&lt;mfe-user-profile user-id=&quot;123&quot;&gt;&lt;/mfe-user-profile&gt;&#10;(plain HTML, no JS call needed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" vertex="1" parent="1">
+        <mxCell id="tag" value="&amp;lt;mfe-user-profile user-id=&quot;123&quot;&amp;gt;&amp;lt;/mfe-user-profile&amp;gt;&#10;(plain HTML, no JS call needed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="100" y="100" width="280" height="60" as="geometry" />
         </mxCell>
 
@@ -99,7 +99,7 @@
         </mxCell>
 
         <!-- script registers -->
-        <mxCell id="script2" value="&lt;script src=&quot;mfe.bundle.js&quot;&gt;&lt;/script&gt;&#10;registers custom element" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=11;" vertex="1" parent="1">
+        <mxCell id="script2" value="&amp;lt;script src=&quot;mfe.bundle.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&#10;registers custom element" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="100" y="190" width="280" height="60" as="geometry" />
         </mxCell>
 
@@ -124,7 +124,7 @@
         </mxCell>
 
         <!-- React root inside shadow -->
-        <mxCell id="react2" value="ReactDOM.createRoot(shadowRoot)&#10;.render(&lt;App/&gt;)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=11;" vertex="1" parent="1">
+        <mxCell id="react2" value="ReactDOM.createRoot(shadowRoot)&#10;.render(&amp;lt;App/&amp;gt;)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="780" y="150" width="200" height="60" as="geometry" />
         </mxCell>
 
