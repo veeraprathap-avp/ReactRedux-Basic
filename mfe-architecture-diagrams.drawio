@@ -15,6 +15,11 @@
           <mxGeometry x="100" y="100" width="220" height="60" as="geometry" />
         </mxCell>
 
+        <!-- AWS S3 bucket -->
+        <mxCell id="s3" value="AWS S3 Bucket&#10;hosts mfe.bundle.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="200" width="220" height="60" as="geometry" />
+        </mxCell>
+
         <!-- script tag -->
         <mxCell id="script" value="&lt;script src=&quot;mfe.bundle.js&quot;&gt;&lt;/script&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="100" y="200" width="220" height="60" as="geometry" />
@@ -46,6 +51,9 @@
         </mxCell>
 
         <!-- Arrows -->
+        <mxCell id="e0" value="GET https://s3.../mfe.bundle.js" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;" edge="1" parent="1" source="s3" target="script">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="script" target="init">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -85,6 +93,11 @@
           <mxGeometry x="100" y="100" width="280" height="60" as="geometry" />
         </mxCell>
 
+        <!-- AWS S3 bucket -->
+        <mxCell id="s32" value="AWS S3 Bucket&#10;hosts mfe.bundle.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="190" width="220" height="60" as="geometry" />
+        </mxCell>
+
         <!-- script registers -->
         <mxCell id="script2" value="&lt;script src=&quot;mfe.bundle.js&quot;&gt;&lt;/script&gt;&#10;registers custom element" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="100" y="190" width="280" height="60" as="geometry" />
@@ -121,6 +134,9 @@
         </mxCell>
 
         <!-- Arrows -->
+        <mxCell id="f0" value="GET https://s3.../mfe.bundle.js" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;" edge="1" parent="1" source="s32" target="script2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="script2" target="ce">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
