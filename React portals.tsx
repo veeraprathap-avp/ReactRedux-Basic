@@ -151,4 +151,30 @@ export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
     </Portal>
   );
 };
+//styles
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Use dvh (Dynamic Viewport Height) so iOS safari address bars don't cut content */
+  height: 100dvh; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90dvh; /* Keeps modal contained on smaller mobile screens */
+  overflow-y: auto; /* Fallback internal scroll if text is too long */
+  z-index: 1001;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
 
