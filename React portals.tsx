@@ -39,9 +39,10 @@ export const Portal = ({ children, wrapperId = 'portal-root' }: PortalProps) => 
 };
 
 // Modal.tsx
-import { useEffect, ReactNode } from 'react';
+// Modal.tsx
+import { useEffect, useRef, ReactNode } from 'react';
 import { Portal } from './Portal';
-import './Modal.css'; // Add your scoping styles here
+import './Modal.css';
 
 interface ModalProps {
   isOpen: boolean;
@@ -51,21 +52,75 @@ interface ModalProps {
 }
 
 export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
-  // Handle Escape key to close
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
-    };
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-      // Prevent background scrolling when open
-      document.body.style.overflow = 'hidden';
+  useEffect(() => {
+    if (!isOpen) return;
+
+    // 1. Save the element that currently has focus before opening
+    previousFocusRef.current = document.activeElement as HTMLElement;
+
+    // List of focusable elements to search for within the modal
+    const focusableElementsString = 
+      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+    
+    const modalElement = modalRef.current;
+    if (!modalElement) return;
+
+    // 2. Query all focusable elements inside the modal
+    const focusableElements = modalElement.querySelectorAll<HTMLElement>(focusableElementsString);
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    // 3. Automatically focus the first element (or the close button)
+    if (firstFocusableElement) {
+      firstFocusableElement.focus();
     }
 
+    // 4. Trap focus and catch global key listeners
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Handle Escape key
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      // Handle Tab key trapping
+      if (event.key === 'Tab') {
+        if (!firstFocusableElement || focusableElements.length === 0) {
+          event.preventDefault();
+          return;
+        }
+
+        if (event.shiftKey) {
+          // Shift + Tab: If on the first element, wrap around to the last
+          if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+            event.preventDefault();
+          }
+        } else {
+          // Tab: If on the last element, wrap around to the first
+          if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            event.preventDefault();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    // 5. Cleanup on close or unmount
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      
+      // Restore focus back to the button/element that opened the modal
+      if (previousFocusRef.current) {
+        previousFocusRef.current.focus();
+      }
     };
   }, [isOpen, onClose]);
 
@@ -73,15 +128,15 @@ export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
 
   return (
     <Portal wrapperId="modal-portal-root">
-      {/* Backdrop overlay */}
       <div className="modal-overlay" onClick={onClose} aria-hidden="true" />
       
-      {/* Modal Content Window */}
       <div 
+        ref={modalRef} // Attached to the container to scan for children
         className="modal-content" 
         role="dialog" 
         aria-modal="true" 
         aria-labelledby={title ? "modal-title" : undefined}
+        tabIndex={-1} // Makes the modal container focusable programmatically if needed
       >
         <header className="modal-header">
           {title && <h2 id="modal-title">{title}</h2>}
